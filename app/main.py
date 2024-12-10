@@ -21,7 +21,6 @@ def on_startup():
     create_db_and_tables()
 
 
-
 app.mount("/totp", totp_app)
 app.mount("/shop", shop_app)
 
@@ -39,6 +38,7 @@ def calculatrice(expr: str):
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
+
 
 # import uvicorn
 # if __name__ == "__main__":

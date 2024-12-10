@@ -1,4 +1,4 @@
-from sqlmodel import Field,SQLModel
+from sqlmodel import Field, SQLModel
 
 
 class Product(SQLModel, table=True):

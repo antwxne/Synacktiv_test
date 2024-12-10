@@ -6,8 +6,8 @@ import os
 DB_URL: str = os.getenv("DB_URL", "localhost")
 DB_USER: str = os.getenv("POSTGRES_USER")
 DB_PASSWORD: str = os.getenv("POSTGRES_PASSWORD")
-DB_NAME:str = os.getenv("POSTGRES_DB")
-connection_url: str = f'postgresql://{DB_USER}:{DB_PASSWORD}@{DB_URL}/{DB_NAME}'
+DB_NAME: str = os.getenv("POSTGRES_DB")
+connection_url: str = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_URL}/{DB_NAME}"
 engine = create_engine(connection_url)
 
 
