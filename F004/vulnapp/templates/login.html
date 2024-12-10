@@ -1,0 +1,23 @@
+{% extends "skeleton.html" %}
+
+{% block content %}
+<form action='/admin/login' method="post" style="width: 350px; margin: auto;" class="text-center">
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+    <div class="form-floating mb-2">
+        <input type="text" class="form-control" id="floatingInput" name="username" placeholder="username">
+        <label for="floatingInput">Username</label>
+    </div>
+    <div class="form-floating mb-2">
+        <input type="password" class="form-control" id="floatingPassword" name='password' placeholder="password">
+        <label for="floatingPassword">Password</label>
+    </div>
+
+    <div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" value="remember-me"> Remember me
+        </label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+</form>
+{% endblock %}

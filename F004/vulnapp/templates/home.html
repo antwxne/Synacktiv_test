@@ -1,0 +1,61 @@
+{% extends "skeleton.html" %}
+
+{% block content %}
+<div class="vstack gap-3">
+    <div id="carouselSpaceY" class="carousel slide mb-2" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselSpaceY" data-bs-slide-to="0" class="active" aria-current="true" aria-label="launching1"></button>
+            <button type="button" data-bs-target="#carouselSpaceY" data-bs-slide-to="1" aria-label="launching2"></button>
+            <button type="button" data-bs-target="#carouselSpaceY" data-bs-slide-to="2" aria-label="launching3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img src="{{ url_for('static', filename='img/launching.jpg') }}" class="d-block w-100" alt="launching1" style="aspect-ratio: 16 / 5; object-fit: cover; object-position: center top">
+            </div>
+            <div class="carousel-item">
+            <img src="{{ url_for('static', filename='img/launching2.jpg') }}" class="d-block w-100" alt="launching2" style="aspect-ratio: 16 / 5; object-fit: cover; object-position: center top">
+            </div>
+            <div class="carousel-item">
+            <img src="{{ url_for('static', filename='img/launching3.jpg') }}" class="d-block w-100" alt="launching3" style="aspect-ratio: 16 / 5; object-fit: cover; object-position: left center">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselSpaceY" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselSpaceY" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    
+    <div class="container mb-5">
+        <div class="feature-container row">
+            <div class="col">
+                <div class="card">
+                    <h5 class="card-header">Featured</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">We are developping the future ! 🚀🌕 💎✋ </h5>
+                        <p class="card-text">Meet our lastest innovation !</p>
+                        <a href="#" class="btn btn-primary">Check it out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="quote-container row">
+            <div class="col">
+                <div class="vstack gap-4 mb-5">
+                    <blockquote class="blockquote mb-0">
+                        <p>When something is important enough, you do it even if the eggs are not in your flavor.</p>
+                        <footer class="blockquote-footer">Lemon Usk, <cite title="Source Title">SpaceY</cite></footer>
+                    </blockquote>
+                    <blockquote class="blockquote mb-0">
+                        <p>If you fell asleep in the morning and think the future is going to be butter, it is a bright day. Otherwise, it's not.</p>
+                        <footer class="blockquote-footer">Lemon Usk, <cite title="Source Title">SpaceY</cite></footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

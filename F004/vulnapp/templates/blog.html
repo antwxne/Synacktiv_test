@@ -1,0 +1,24 @@
+{% extends "skeleton.html" %}
+
+{% block content %}
+<div class="container mb-5">
+    {% if mode == 'all' %}
+        {% for blogpost in blogposts %}
+            <div class="card mt-2" style="width: 18rem;">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h5>{{ blogpost[1] }}</h5>
+                        <em>{{ blogpost[3] }}</em>
+                    </div>
+                    <p class="card-text">{{ blogpost[2][:50] }}</p>
+                    <a href="/blog?id={{ blogpost[0] }}" class="card-link">Read</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h2>{{ blogposts[0][1] }}</h2>
+        <p>{{ blogposts[0][2] }}</p>
+        <p>{{ blogposts[0][3] }}</p>
+    {% endif %}
+</div>
+{% endblock %}

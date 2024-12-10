@@ -1,0 +1,24 @@
+{% macro img_upload(title, message='') %}
+    <div class="card m-4">
+        <div class="card-header">
+            <h2>{{ title }}</h2>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/admin/panel/upload" enctype="multipart/form-data" onsubmit="return checkUpload();" class="mb-2">
+                <label for="file" class="form-label">
+                    File
+                </label>
+                <input id="filetag" name="file" type="file" value="Upload" class="form-control mb-3">
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+    
+            <div id="preUploadError" class="alert alert-warning" role="alert" style="display: none;"></div>
+    
+            {% if message %}
+                <div class="alert alert-info" role="alert">
+                    {{ message }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endmacro %}

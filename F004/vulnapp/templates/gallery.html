@@ -1,0 +1,19 @@
+{% extends "skeleton.html" %}
+
+{% block script %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/download.js') }}"></script>
+<script defer>
+{% for id, img_url in images.items() %}
+    downloadB64("{{id}}", "{{img_url}}", "img_container");
+{% endfor %}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container mb-5">
+    <div>
+        <h2>Gallery</h2>
+        <div id="img_container" class="d-flex flex-column mb-2 gap-3"></div>
+    </div>
+</div>
+{% endblock %}

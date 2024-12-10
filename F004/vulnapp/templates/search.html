@@ -1,0 +1,24 @@
+{% extends "skeleton.html" %}
+
+{% block content %}
+<div class="container mb-5">
+	<p>You've searched: {{search | safe}}</p>
+	
+	{% if content %}
+		{% for blogpost in content %}
+		<div class="card" style="width: 18rem;">
+			<div class="card-body">
+                <div class="card-title">
+                    <h5>{{ blogpost[1] }}</h5>
+                    <em>{{ blogpost[3] }}</em>
+                </div>
+				<p class="card-text">{{ blogpost[2][:50] }}</p>
+				<a href="/blog?id={{ blogpost[0] }}" class="card-link">Read</a>
+			</div>
+		</div>
+		{% endfor %}
+	{% else %}
+		<p>Not Found</p>
+	{% endif %}
+</div>
+{% endblock %}
