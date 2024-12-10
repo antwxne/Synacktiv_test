@@ -3,9 +3,6 @@ import os
 import subprocess
 
 
-FILE:str = os.getenv("SECRET_FILE")
-assert(FILE is not None)
-ENCRYPTED_FILE: str = f'{FILE}.gpg'
 PASSPHRASE: str = os.getenv("SECRET_PASSPHRASE")
 assert(PASSPHRASE is not None)
 SECRETS_FOLDER: str = "./secrets_folder"

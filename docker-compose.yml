@@ -24,6 +24,8 @@ services:
       - synacktive_db:/var/lib/postgresql/data
     networks:
       - backend
+    ports:
+      - "5432:5432"
 
   adminer:
     image: adminer
