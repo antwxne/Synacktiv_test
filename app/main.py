@@ -1,15 +1,23 @@
-from typing import Annotated
-from fastapi import Depends, FastAPI, HTTPException
-from db_connection import create_db_and_tables
+from dotenv import load_dotenv
+load_dotenv()
+import os
+from fastapi import FastAPI, HTTPException
 from calculatrice_controller import calculatrice_controller, InvalidExpression
 from totp import app as totp_app
+from totp.register_controller import encrypt_secret
+from totp.gpg_utils import FILE, ENCRYPTED_FILE
+
 
 app = FastAPI()
 
 
 @app.on_event("startup")
 def on_startup():
-    create_db_and_tables()
+    if os.path.exists(ENCRYPTED_FILE):
+        os.remove(ENCRYPTED_FILE)
+    f = open(FILE, 'w')
+    f.close()
+    encrypt_secret()
 
 
 app.mount("/totp", totp_app)
