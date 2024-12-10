@@ -24,7 +24,7 @@ async def register(
             status_code=400, detail={"error": "please add X-User header"}
         )
     try:
-        if not auth_controller(x_user, password):
+        if not auth_controller(x_user, password.password):
             raise HTTPException(status_code=401, detail={"result": "unauthorized"})
         return {"result": "ok"}
     except UserDoesNotExist as error:

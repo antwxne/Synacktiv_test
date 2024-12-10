@@ -4,8 +4,7 @@ import os
 from fastapi import FastAPI, HTTPException
 from calculatrice_controller import calculatrice_controller, InvalidExpression
 from totp import app as totp_app
-from totp.register_controller import encrypt_secret
-from totp.gpg_utils import FILE, ENCRYPTED_FILE
+from totp.gpg_utils import SECRETS_FOLDER
 
 
 app = FastAPI()
@@ -13,11 +12,8 @@ app = FastAPI()
 
 @app.on_event("startup")
 def on_startup():
-    if os.path.exists(ENCRYPTED_FILE):
-        os.remove(ENCRYPTED_FILE)
-    f = open(FILE, 'w')
-    f.close()
-    encrypt_secret()
+    if not os.path.exists(SECRETS_FOLDER):
+        os.makedirs(SECRETS_FOLDER)
 
 
 app.mount("/totp", totp_app)
